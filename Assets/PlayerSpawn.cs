@@ -4,30 +4,41 @@ using UnityEngine;
 
 public class PlayerSpawn : MonoBehaviour
 {
-    public Transform playerSpawnPoints; //the parent of the sppawn point
-    public Transform[] spawnPositions;
-
     // Start is called before the first frame update
+    public Transform playerSpawnPoints;   // The parent of the spawn points
+    Transform[] spawnPositions;
+    public bool isRespawn = false;
+    public bool respawnToggle = false;
     void Start()
     {
         spawnPositions = playerSpawnPoints.GetComponentsInChildren<Transform>();
-        print(transform.position);
-        RandomSpawn();
-        print(transform.position);
-        Debug.Log(spawnPositions.Length);
-        print("Hello");
-
-    }
-    public void Update()
-    {
-
+        //RandomSpawn();
+        //Debug.Log(spawnPositions.Length);
     }
 
-    private void RandomSpawn()
+    public void RandomSpawn()
     {
         int i = UnityEngine.Random.Range(1, spawnPositions.Length);
-        transform.position = new Vector3(82F, 25F, 425F);
 
+        Debug.Log(spawnPositions[i].transform.position);
+        this.transform.position = spawnPositions[i].transform.position;
+    }
 
+    // Update is called once per frame
+    void Update()
+    {
+        /*if(respawnToggle!=isRespawn)
+        {
+            RandomSpawn();
+            isRespawn = false;
+        }
+        else
+        {
+            respawnToggle = isRespawn;
+        }*/
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            RandomSpawn();
+        }
     }
 }

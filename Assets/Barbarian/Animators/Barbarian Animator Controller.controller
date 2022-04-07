@@ -695,7 +695,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 456, y: 0, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 1102000010177475576}
+  m_DefaultState: {fileID: 1102000012806320326}
 --- !u!1107 &1107000013718225526
 AnimatorStateMachine:
   serializedVersion: 6
